@@ -1,0 +1,24 @@
+<h1>User Details of {{ userobj.name }}</h1>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>{{ userobj.name }}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{ userobj.email }}</td>
+  </tr>
+  <tr>
+    <td>Mobile</td>
+    <td>{{ userobj.mobile }}</td>
+  </tr>
+  <tr>
+    <td>ID</td>
+    <td>{{ userobj.id }}</td>
+  </tr>
+</table>
+<br />
+
+<a routerLink="/">Home</a>&nbsp;&nbsp;
+<a routerLink="/updateuser/{{ userobj.id }}">Edit</a>&nbsp;&nbsp;
+<button (click)="deletecode()">Delete</button>

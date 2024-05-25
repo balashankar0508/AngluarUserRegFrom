@@ -1,0 +1,9 @@
+<h1>User View</h1>
+<div>
+  <article *ngFor="let i of ar">
+    <h3>{{ i.name }}</h3>
+    <a routerLink="details/{{ i.id }}">View More</a>
+  </article>
+  <br />
+  <a routerLink="/create">Add new user</a>
+</div>

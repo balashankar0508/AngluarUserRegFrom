@@ -1,0 +1,14 @@
+td{
+    display: inline-block;
+    height: 30px;
+    width: 100px;
+    justify-content: space-between;
+}
+
+span{
+    color: red;
+}
+
+#err{
+    color: red;
+}

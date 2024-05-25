@@ -1,0 +1,9 @@
+td{
+    height: 20px;
+    width: 100px;
+    font-size: 20px;
+}
+
+td:nth-child(1){
+    font-weight: bold;
+}

@@ -1,0 +1,86 @@
+<h1>User Details Update</h1>
+
+<form #f="ngForm" (ngSubmit)="saveuser()">
+  <table>
+    <div>
+      <tr>
+        <td>
+          <label for="name">Name<span>*</span></label>
+        </td>
+        <td>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            minlength="3"
+            required
+            maxlength="100"
+            [(ngModel)]="userobj.name"
+            #name="ngModel"
+          />
+        </td>
+      </tr>
+      <div id="err" *ngIf="name.invalid && (name.touched || name.dirty)">
+        <p *ngIf="name.errors?.['required']">Enter Name</p>
+        <p *ngIf="name.errors?.['minlength']">
+          Name must be at least 3 characters long
+        </p>
+        <p *ngIf="name.errors?.['maxlength']">
+          Name cannot be more than 100 characters long
+        </p>
+      </div>
+    </div>
+    <div>
+      <tr>
+        <td>
+          <label for="mobile">Mobile<span>*</span></label>
+        </td>
+        <td>
+          <input
+            type="tel"
+            name="mobile"
+            [(ngModel)]="userobj.mobile"
+            pattern="[6789]{1}[0-9]{9}"
+            required
+            #mobile="ngModel"
+          />
+        </td>
+      </tr>
+      <div id="err" *ngIf="mobile.invalid && (mobile.touched || mobile.dirty)">
+        <p *ngIf="mobile.errors?.['required']">Enter Mobile Number</p>
+        <p *ngIf="mobile.errors?.['pattern']">Invalid Mobile number</p>
+      </div>
+    </div>
+    <div>
+      <tr>
+        <td>
+          <label for="email">Mail ID<span>*</span></label>
+        </td>
+        <td>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            [(ngModel)]="userobj.email"
+            #email="ngModel"
+            required
+            maxlength="100"
+          />
+        </td>
+      </tr>
+      <div id="err" *ngIf="email.invalid && (email.touched || email.dirty)">
+        <p *ngIf="email.errors?.['required']">Enter Mail Id</p>
+        <p *ngIf="email.errors?.['maxlength']">
+          Mail Id cannot be more than 100 characters long
+        </p>
+      </div>
+    </div>
+    <tr>
+      <td><input type="submit" value="Update" [disabled]="f.invalid" /></td>
+      <td><input type="reset" value="Reset" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><a routerLink="/">Home</a></td>
+    </tr>
+  </table>
+</form>
